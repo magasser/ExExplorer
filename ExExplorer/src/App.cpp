@@ -16,12 +16,28 @@ App::~App()
 
 void App::Run()
 {
+	auto drives = FileSystem::GetDrives();
+	auto entries = FileSystem::GetPathEntries(drives[0].GetRoot());
+
 	while (!m_Window->ShouldClose())
 	{
-		m_Window->BeginFrame();
-
-		m_Window->EndFrame();
+		OnUpdate();
+		OnUIRender();
 	}
+}
+
+void App::OnUpdate()
+{
+	OnUpdateCore();
+}
+
+void App::OnUIRender()
+{
+	m_Window->Begin();
+
+	OnUIRenderCore();
+
+	m_Window->End();
 }
 
 void App::Init()

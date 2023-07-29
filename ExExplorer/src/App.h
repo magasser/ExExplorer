@@ -1,16 +1,24 @@
 ﻿#pragma once
 
-#include "UI/Window.h"
+#include "Window.h"
+#include "FileSystem.h"
 
 class App
 {
 public:
 	App(const std::string& name);
-	~App();
+	virtual ~App();
 
 	void Run();
 
+protected:
+	virtual void OnUpdateCore() = 0;
+	virtual void OnUIRenderCore() = 0;
+
 private:
+	void OnUpdate();
+	void OnUIRender();
+
 	void Init();
 	void Terminate();
 

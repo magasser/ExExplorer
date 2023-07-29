@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+	<Type Name="Size">
+		<DisplayString Condition="m_Bytes > 1000000000000">{{ {m_Bytes / 1024.0 / 1024.0 / 1024.0 / 1024.0} TB }}</DisplayString>
+		<DisplayString Condition="m_Bytes > 1000000000">{{ {m_Bytes / 1024.0 / 1024.0 / 1024.0} GB }}</DisplayString>
+		<DisplayString Condition="m_Bytes > 1000000">{{ {m_Bytes / 1024.0 / 1024.0} MB }}</DisplayString>
+		<DisplayString Condition="m_Bytes > 1000">{{ {m_Bytes / 1024.0} KB }}</DisplayString>
+		<DisplayString>{{ {m_Bytes} B }}</DisplayString>
+	</Type>
+	<Type Name="Entry">
+		<DisplayString Condition="m_IsDirectory">Directory {{ {m_Name} }}</DisplayString>
+		<DisplayString>File {{ {m_Name}, {m_Size} }}</DisplayString>
+	</Type>
+	<Type Name="Drive">
+		<DisplayString>Drive {{ {m_Name} ({m_Root}), {m_Type}, Free {m_FreeStorage}, Total {m_TotalStorage} }}</DisplayString>
+	</Type>
+</AutoVisualizer>

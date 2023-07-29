@@ -1,6 +1,7 @@
 ﻿#pragma once
 
-struct GLFWwindow;
+#include <imgui.h>
+#include <GLFW/glfw3.h>
 
 struct WindowParams
 {
@@ -15,8 +16,8 @@ public:
 	Window(const WindowParams& params);
 	~Window();
 
-	void BeginFrame();
-	void EndFrame();
+	void Begin();
+	void End();
 
 	bool ShouldClose();
 
@@ -30,5 +31,6 @@ private:
 	std::string m_Title;
 	int32_t m_Width;
 	int32_t m_Height;
+	ImVec4 m_ClearColor;
 	GLFWwindow* m_GLFWwindow;
 };

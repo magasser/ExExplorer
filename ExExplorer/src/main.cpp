@@ -1,9 +1,9 @@
 #include "eepch.h"
 
-#include "App.h"
+#include "ExExplorerApp.h"
 
 int main()
 {
-	App app("ExExplorer");
+	ExExplorerApp app;
 	app.Run();
 }

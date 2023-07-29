@@ -3,6 +3,7 @@ project "ExExplorer"
     language "C++"
     cppdialect "C++20"
     staticruntime "off"
+    architecture "x64"
 
     IncludeDir = {}
     IncludeDir["spdlog"] = "../vendor/spdlog/include"
